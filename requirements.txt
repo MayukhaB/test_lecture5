@@ -4,3 +4,5 @@ altair
 gunicorn
 vega_datasets
 pandas
+tkinter
+ctypes
