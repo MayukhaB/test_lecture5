@@ -3,6 +3,4 @@ dash_bootstrap_components
 altair
 gunicorn
 vega_datasets
-tkinter
-ctypes
 pandas
