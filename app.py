@@ -1,4 +1,6 @@
 #All import statements
+import tkinter
+import ctypes
 from ctypes import alignment
 from tkinter import N
 import pandas as pd
