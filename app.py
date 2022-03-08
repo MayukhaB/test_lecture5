@@ -136,7 +136,7 @@ header=html.Div([
 
         html.Div([
             html.Img(
-                    src = app.get_asset_url('logo1.png'),
+                    src = app.get_asset_url('logo.png'),
                     height = '50 px',
                     width = 'auto')
             ],
