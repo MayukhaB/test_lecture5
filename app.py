@@ -265,4 +265,4 @@ def plot_altair(genre_widget,ycol,release_year):
 
 #Run in debug mode if it's running as the main program. 
 if __name__ == '__main__':
-    app.run_server(host='127.0.0.1',debug=True)
+    app.run_server()
