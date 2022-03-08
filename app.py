@@ -11,9 +11,6 @@ from altair_data_server import data_server
 alt.data_transformers.enable('data_server')
 alt.data_transformers.disable_max_rows()
 
-# Setup app and layout/frontend
-app = dash.Dash(__name__,  external_stylesheets=[dbc.themes.BOOTSTRAP])
-server=app.server
 
 def getSpotifyData():
     """Retrieves Spotify data from Github and performs the necessary wrangling. 
@@ -38,6 +35,12 @@ def getSpotifyData():
     data['Album Release Date'] =  pd.to_datetime(data['Album Release Date'], format='%Y-%m-%d')
     data['Year'] = data['Album Release Date'].apply(lambda x: x.year)
     return data
+
+data = getSpotifyData()
+
+app = dash.Dash(__name__,  external_stylesheets=[dbc.themes.BOOTSTRAP])
+server=app.server
+
 
 
 def top_n_by_popularity(data,ycol='Name'):
@@ -116,8 +119,7 @@ def pop_vs_year(data):
     ).interactive()
     return chart.to_html()
 
-# Read in global data
-data = getSpotifyData()
+
 
 
 header=html.Div([
