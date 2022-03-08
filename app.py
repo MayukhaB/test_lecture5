@@ -1,4 +1,5 @@
 #All import statements
+import dash
 import pandas as pd
 import altair as alt
 from dash import Dash, html, dcc
@@ -10,7 +11,9 @@ from altair_data_server import data_server
 alt.data_transformers.enable('data_server')
 alt.data_transformers.disable_max_rows()
 
-
+# Setup app and layout/frontend
+app = dash.Dash(__name__,  external_stylesheets=[dbc.themes.BOOTSTRAP])
+server=app.server
 
 def getSpotifyData():
     """Retrieves Spotify data from Github and performs the necessary wrangling. 
@@ -116,9 +119,7 @@ def pop_vs_year(data):
 # Read in global data
 data = getSpotifyData()
 
-# Setup app and layout/frontend
-app = Dash(__name__,  external_stylesheets=[dbc.themes.BOOTSTRAP])
-server=app.server
+
 header=html.Div([
 
         html.Div([], className = 'col-2'), #Same as img width, allowing to have the title centrally aligned
